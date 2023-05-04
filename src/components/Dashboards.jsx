@@ -11,11 +11,23 @@ const Dashboards = () => {
         <FunctionBar />
       </header>
 
-      <main>
-        <h3>Main</h3>
-      </main>
+      <main></main>
 
-      <footer>Footer</footer>
+      <footer>
+        <p className="copyright">&copy; 2023 snow</p>
+
+        <div className="container">
+          <a href="">
+            <p>About</p>
+          </a>
+          <a href="">
+            <p>Support</p>
+          </a>
+          <a href="">
+            <p>Contact Us</p>
+          </a>
+        </div>
+      </footer>
     </Wrapper>
   );
 };
@@ -79,7 +91,7 @@ const Wrapper = styled.section`
 
   main {
     border: 1px black solid;
-    height: 100vh;
+    height: 84vh;
     flex: 0 0 auto;
     width: 100%;
   }
@@ -89,6 +101,25 @@ const Wrapper = styled.section`
     flex: 0 0 auto;
     height: 7vh;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    p.copyright {
+      margin: 0 25px;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.4);
+    }
+    div.container {
+      width: 25%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      margin: 0 25px;
+      p {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.4);
+      }
+    }
   }
 `;
 export default Dashboards;
