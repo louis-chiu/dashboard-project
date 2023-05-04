@@ -26,7 +26,7 @@ const StatusList = () => {
 const Wrapper = styled.section`
   padding: 0 0 0 15px;
   width: 90%;
-  margin: 15px 0 0 0;
+  margin: 20px 0 0 0;
 
   p.status-category {
     font-weight: 600;
@@ -39,7 +39,7 @@ const Wrapper = styled.section`
     align-items: center;
     li {
       width: 100%;
-      margin: 5px 0;
+      margin: 7.5px 0;
     }
   }
 `;

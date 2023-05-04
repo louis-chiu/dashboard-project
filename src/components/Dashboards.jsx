@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import FunctionBar from "./FunctionBar";
 import Breadcrumb from "./Breadcrumb";
+import { MdKeyboardArrowRight, MdKeyboardArrowDown } from "react-icons/md";
 
 const Dashboards = () => {
   return (
@@ -11,7 +12,29 @@ const Dashboards = () => {
         <FunctionBar />
       </header>
 
-      <main></main>
+      <main>
+        <div className="date-picker">
+          <button>Today</button>
+          <MdKeyboardArrowDown />
+        </div>
+        <section className="status-container">
+          <div className="status"></div>
+          <div className="status"></div>
+          <div className="status"></div>
+          <div className="status"></div>
+        </section>
+        <section className="statistic-row-1">
+          <div className="line-chart"></div>
+          <div className="bar-chart"></div>
+        </section>
+        <section className="statistic-row-2">
+          <div className="bar-chart"></div>
+          <div className="pie-chart"></div>
+        </section>
+        <section className="statistic-row-3">
+          <div className="line-chart"></div>
+        </section>
+      </main>
 
       <footer>
         <p className="copyright">&copy; 2023 snow</p>
@@ -35,11 +58,11 @@ const Wrapper = styled.section`
   header {
     height: 9vh;
     width: 100%;
-    border: 1px black solid;
     flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px rgba(0, 0, 0, 0.1) solid;
     section.breadcrumb {
       display: flex;
       align-items: center;
@@ -90,14 +113,100 @@ const Wrapper = styled.section`
   }
 
   main {
-    border: 1px black solid;
-    height: 84vh;
     flex: 0 0 auto;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    div.date-picker {
+      height: 50px;
+      border-radius: 16px;
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-self: flex-start;
+      margin: 0 60px;
+      button {
+        font-weight: bold;
+      }
+    }
+    section.status-container {
+      height: 120px;
+      width: 90%;
+      flex: 0 0 auto;
+
+      display: flex;
+      justify-content: space-between;
+      div.status {
+        border-radius: 16px;
+        &:nth-child(odd) {
+          width: 20%;
+          height: 100%;
+          background-color: #e3f5ff;
+        }
+        &:nth-child(even) {
+          width: 20%;
+          height: 100%;
+          background-color: #e5ecf6;
+        }
+      }
+    }
+    section.statistic-row-1 {
+      height: 300px;
+      width: 90%;
+      flex: 0 0 auto;
+      margin: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      div.line-chart {
+        width: 75%;
+        height: 100%;
+        border-radius: 16px;
+        background-color: #f7f9fb;
+      }
+      div.bar-chart {
+        width: 20%;
+        height: 100%;
+        border-radius: 16px;
+        background-color: #f7f9fb;
+      }
+    }
+    section.statistic-row-2 {
+      margin: 20px 0;
+      height: 300px;
+      width: 90%;
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: space-between;
+      div.bar-chart {
+        width: 47.5%;
+        height: 100%;
+        border-radius: 16px;
+        background-color: #f7f9fb;
+      }
+      div.pie-chart {
+        width: 47.5%;
+        height: 100%;
+        border-radius: 16px;
+        background-color: #f7f9fb;
+      }
+    }
+    section.statistic-row-3 {
+      margin: 20px 0;
+      height: 300px;
+      width: 90%;
+      flex: 0 0 auto;
+      div.line-chart {
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        background-color: #f7f9fb;
+      }
+    }
   }
 
   footer {
-    border: 1px black solid;
     flex: 0 0 auto;
     height: 7vh;
     width: 100%;

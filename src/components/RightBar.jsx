@@ -11,6 +11,4 @@ const RightBar = () => {
   );
 };
 
-const Wrapper = styled.aside`
-`;
 export default RightBar;
