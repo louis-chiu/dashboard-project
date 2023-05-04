@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styled from "styled-components";
+import "./App.css";
+import Dashboards from "./components/Dashboards";
+import RightBar from "./components/RightBar";
+import Sidebar from "./components/Sidebar";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Container>
+      <Sidebar />
+      <Dashboards />
+      <RightBar />
+    </Container>
+  );
 }
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  section.dashboard {
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden; // scroll?
 
-export default App
+    height: 100%;
+    width: 67%;
+    border: 1px black solid;
+  }
+  aside {
+    display: flex;
+    &.sidebar {
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+
+      width: 15%;
+      height: 95%;
+    }
+    &.right-bar {
+      flex-direction: column;
+      align-items: center;
+      width: 18%;
+      height: 100%;
+    }
+  }
+`;
+export default App;
