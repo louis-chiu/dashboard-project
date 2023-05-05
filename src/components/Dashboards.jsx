@@ -1,8 +1,9 @@
 import styled from "styled-components";
-
+import Status from "./Status";
 import FunctionBar from "./FunctionBar";
 import Breadcrumb from "./Breadcrumb";
 import { MdKeyboardArrowRight, MdKeyboardArrowDown } from "react-icons/md";
+import { statusData } from "../data";
 
 const Dashboards = () => {
   return (
@@ -18,10 +19,9 @@ const Dashboards = () => {
           <MdKeyboardArrowDown />
         </div>
         <section className="status-container">
-          <div className="status"></div>
-          <div className="status"></div>
-          <div className="status"></div>
-          <div className="status"></div>
+          {statusData.map((status) => {
+            return <Status {...status} key={status.title} />;
+          })}
         </section>
         <section className="statistic-row-1">
           <div className="line-chart"></div>

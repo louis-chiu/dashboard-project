@@ -3,31 +3,33 @@ import { MdKeyboardArrowRight, MdKeyboardArrowDown } from "react-icons/md";
 import { BsFillFilePersonFill } from "react-icons/bs";
 import { useState } from "react";
 
-const NavItem = () => {
+const NavItem = ({ title, data }) => {
   const [isActive, setIsActive] = useState(false);
+  const handleClick = () => {
+    setIsActive(!isActive);
+  };
   return (
     <Nav className="nav">
-      <NavTitle className="nav-title">
+      <NavTitle className="nav-title" onClick={handleClick}>
         {isActive ? (
-          <MdKeyboardArrowDown style={{ color: "rgba(0,0,0,0.2)" }} />
+          <MdKeyboardArrowDown style={{ color: "rgba(0,0,0,0.4)" }} />
         ) : (
-          <MdKeyboardArrowRight style={{ color: "rgba(0,0,0,0.2)" }} />
+          <MdKeyboardArrowRight style={{ color: "rgba(0,0,0,0.4)" }} />
         )}
-        <BsFillFilePersonFill size={15} style={{ margin: "0 0 0 3px" }} />
-        <p>User Profile</p>
+        <BsFillFilePersonFill size={15} style={{ margin: "0 3px" }} />
+        <p>{title}</p>
       </NavTitle>
-
-      <ul>
-        <li>
-          <p>Overview</p>
-        </li>
-        <li>
-          <p>Products</p>
-        </li>
-        <li>
-          <p>Companies</p>
-        </li>
-      </ul>
+      {isActive && (
+        <ul>
+          {data.map((item) => {
+            return (
+              <li>
+                <p>{item.title}</p>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </Nav>
   );
 };
@@ -36,7 +38,6 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5px 0;
   ul {
     display: flex;
     flex-direction: column;
@@ -45,13 +46,13 @@ const Nav = styled.nav`
     li {
       display: flex;
       justify-content: center;
-      position: relative;
-      text-align: start;
+      position: relative; // for hover
       padding: 5px 0;
       width: 100%;
       p {
         width: 50%;
-        text-align: start;
+        position: relative;
+        left: -5px;
       }
 
       // hover
@@ -80,11 +81,12 @@ const Nav = styled.nav`
     }
   }
 `;
-const NavTitle = styled.div`
+const NavTitle = styled.button`
   display: flex;
   align-items: center;
+  padding: 5px 0;
   p {
-    padding: 5px 5px;
+    padding: 0px 5px;
   }
 
   &:hover {

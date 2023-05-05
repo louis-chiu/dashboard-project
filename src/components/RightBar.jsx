@@ -1,12 +1,13 @@
 import styled from "styled-components";
-import StatusList from "./StatusList";
+import Notifications from "./Notifications";
+import { rightBarItems } from "../data";
 
 const RightBar = () => {
   return (
     <aside className="right-bar">
-      <StatusList />
-      <StatusList />
-      <StatusList />
+      {rightBarItems.map((item) => {
+        return <Notifications {...item} key={item.title} />;
+      })}
     </aside>
   );
 };

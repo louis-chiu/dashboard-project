@@ -1,15 +1,19 @@
 import styled from "styled-components";
 import { BsBug } from "react-icons/bs";
 
-const Notification = () => {
+const Notification = ({ message, timestamp, name }) => {
   return (
-    <Wrapper>
+    <Wrapper className="notification-container">
       <div className="icon-container">
         <BsBug size={15} />
       </div>
       <div className="notification">
-        <p className="message">You have a bug that needs t...</p>
-        <p className="timestamp">Just now</p>
+        <p className="message">
+          {String(message).length > 30
+            ? String(message).substring(0, 27) + "..."
+            : message}
+        </p>
+        <p className="timestamp">{timestamp}</p>
       </div>
     </Wrapper>
   );

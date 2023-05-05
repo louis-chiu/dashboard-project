@@ -1,21 +1,19 @@
 import styled from "styled-components";
 import NavItem from "./NavItem";
 
-const Navbar = () => {
+const Navbar = ({ title, data }) => {
   return (
     <NavContainer className="nav-container">
-      <p className="nav-category">Dashboards</p>
+      <p className="nav-category">{title}</p>
 
       <ul className="nav-title">
-        <li>
-          <NavItem />
-        </li>
-        <li>
-          <NavItem />
-        </li>
-        <li>
-          <NavItem />
-        </li>
+        {data.map((item) => {
+          return (
+            <li>
+              <NavItem {...item} key={item.title} />
+            </li>
+          );
+        })}
       </ul>
     </NavContainer>
   );

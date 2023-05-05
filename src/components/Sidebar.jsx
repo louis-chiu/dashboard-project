@@ -5,6 +5,7 @@ import { IoSnowOutline } from "react-icons/io5";
 import { RxDotFilled } from "react-icons/rx";
 
 import User from "./User";
+import { sidebarItems } from "../data";
 
 const Sidebar = () => {
   return (
@@ -26,7 +27,9 @@ const Sidebar = () => {
       </FavContainer>
 
       <NavContainer>
-        <Navbar />
+        {sidebarItems.map((item) => {
+          return <Navbar {...item} key={item.title} />;
+        })}
       </NavContainer>
 
       <Logo className="logo">
@@ -42,7 +45,7 @@ const Sidebar = () => {
 
 const FavContainer = styled.section`
   width: 80%;
-  height: 20%;
+  height: 15%;
   padding: 0 5px;
   display: flex;
   flex-direction: column;
@@ -58,9 +61,13 @@ const FavContainer = styled.section`
   .favorites {
     li {
       padding: 5px 0;
-
       display: flex;
       align-items: center;
+      &:hover {
+        border-radius: 8px;
+        background-color: rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+      }
       p {
         padding: 0 0 0 10px;
       }
@@ -68,7 +75,7 @@ const FavContainer = styled.section`
   }
 `;
 const NavContainer = styled.section`
-  height: 70%;
+  height: 75%;
   width: 80%;
 `;
 

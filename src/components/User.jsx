@@ -1,11 +1,11 @@
-import avatar from "../assets/cat.jpg";
+import cat from "../assets/cat.jpg";
 import styled from "styled-components";
 
-const User = () => {
+const User = ({ avatar = cat, name }) => {
   return (
-    <UserContainer className="user">
+    <UserContainer className="user-container">
       <img src={avatar} alt="avatar" />
-      <p>User Name</p>
+      <p>{name || "User Name"}</p>
     </UserContainer>
   );
 };
