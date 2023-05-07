@@ -1,3 +1,11 @@
+import { AiOutlinePieChart, AiOutlineProfile } from "react-icons/ai";
+import { FiShoppingBag } from "react-icons/fi";
+import { BsFolder } from "react-icons/bs";
+import { HiOutlineBookOpen } from "react-icons/hi";
+import { RiFileUserLine, RiProfileLine } from "react-icons/ri";
+import { MdPeopleOutline } from "react-icons/md";
+import { TbMessages } from "react-icons/tb";
+
 export const statusData = [
   {
     title: "View",
@@ -26,18 +34,22 @@ export const sidebarItems = [
     title: "Dashboards",
     data: [
       {
+        icon: <AiOutlinePieChart size={15} style={{ margin: "0 3px" }} />,
         title: "Default",
         data: [],
       },
       {
+        icon: <FiShoppingBag size={15} style={{ margin: "0 3px" }} />,
         title: "eCommerce",
         data: [],
       },
       {
+        icon: <BsFolder size={15} style={{ margin: "0 3px" }} />,
         title: "Projects",
         data: [],
       },
       {
+        icon: <HiOutlineBookOpen size={15} style={{ margin: "0 3px" }} />,
         title: "Online Courses",
         data: [],
       },
@@ -47,6 +59,7 @@ export const sidebarItems = [
     title: "Pages",
     data: [
       {
+        icon: <RiFileUserLine size={15} style={{ margin: "0 3px" }} />,
         title: "User Profile",
         data: [
           {
@@ -67,6 +80,7 @@ export const sidebarItems = [
         ],
       },
       {
+        icon: <RiProfileLine size={15} style={{ margin: "0 3px" }} />,
         title: "Account",
         data: [
           {
@@ -87,6 +101,7 @@ export const sidebarItems = [
         ],
       },
       {
+        icon: <MdPeopleOutline size={15} style={{ margin: "0 3px" }} />,
         title: "Corporate",
         data: [
           {
@@ -107,6 +122,7 @@ export const sidebarItems = [
         ],
       },
       {
+        icon: <AiOutlineProfile size={15} style={{ margin: "0 3px" }} />,
         title: "Blog",
         data: [
           {
@@ -127,6 +143,7 @@ export const sidebarItems = [
         ],
       },
       {
+        icon: <TbMessages size={15} style={{ margin: "0 3px" }} />,
         title: "Social",
         data: [
           {

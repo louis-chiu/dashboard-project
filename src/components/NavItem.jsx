@@ -3,27 +3,29 @@ import { MdKeyboardArrowRight, MdKeyboardArrowDown } from "react-icons/md";
 import { BsFillFilePersonFill } from "react-icons/bs";
 import { useState } from "react";
 
-const NavItem = ({ title, data }) => {
-  const [isActive, setIsActive] = useState(false);
+const NavItem = ({ icon, title, data, toggleNavbar, activeTitle }) => {
+  // const [isActive, setIsActive] = useState(false);
+
+  const isActive = title === activeTitle;
   const handleClick = () => {
     setIsActive(!isActive);
   };
   return (
     <Nav className="nav">
-      <NavTitle className="nav-title" onClick={handleClick}>
+      <NavTitle className="nav-title" onClick={() => toggleNavbar(title)}>
         {isActive ? (
           <MdKeyboardArrowDown style={{ color: "rgba(0,0,0,0.4)" }} />
         ) : (
           <MdKeyboardArrowRight style={{ color: "rgba(0,0,0,0.4)" }} />
         )}
-        <BsFillFilePersonFill size={15} style={{ margin: "0 3px" }} />
+        {icon}
         <p>{title}</p>
       </NavTitle>
       {isActive && (
         <ul>
           {data.map((item) => {
             return (
-              <li>
+              <li key={item.title}>
                 <p>{item.title}</p>
               </li>
             );

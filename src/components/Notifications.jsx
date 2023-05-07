@@ -10,11 +10,11 @@ const StatusList = ({ title, data }) => {
         <ul>
           {data.map((item) => {
             return (
-              <li>
+              <li key={item.name || item.timestamp}>
                 {title === "Contacts" ? (
-                  <User {...item} key={item.name} />
+                  <User {...item} />
                 ) : (
-                  <Notification {...item} key={item.timestamp /*temp*/} />
+                  <Notification {...item} />
                 )}
               </li>
             );

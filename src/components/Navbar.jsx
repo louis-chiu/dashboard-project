@@ -1,7 +1,16 @@
 import styled from "styled-components";
 import NavItem from "./NavItem";
+import { useState } from "react";
 
 const Navbar = ({ title, data }) => {
+  const [activeTitle, setActiveTitle] = useState(null);
+
+  const toggleNavbar = (title) => {
+    const newActiveTitle = title === activeTitle ? null : title;
+    setActiveTitle(newActiveTitle);
+    console.log(newActiveTitle);
+  };
+
   return (
     <NavContainer className="nav-container">
       <p className="nav-category">{title}</p>
@@ -9,8 +18,12 @@ const Navbar = ({ title, data }) => {
       <ul className="nav-title">
         {data.map((item) => {
           return (
-            <li>
-              <NavItem {...item} key={item.title} />
+            <li key={item.title}>
+              <NavItem
+                {...item}
+                toggleNavbar={toggleNavbar}
+                activeTitle={activeTitle}
+              />
             </li>
           );
         })}

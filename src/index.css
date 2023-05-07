@@ -21,6 +21,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  user-select: none;
 }
 p {
   font-size: 14px;
